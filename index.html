@@ -2,103 +2,104 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Doğum Günün Kutlu Olsun 🎉</title>
+<title>İyi ki Doğdun ✨</title>
 
 <style>
 body {
-    background: linear-gradient(to right, #ffdde1, #ee9ca7);
-    text-align: center;
+    margin: 0;
+    background: black;
+    color: white;
     font-family: Arial, sans-serif;
+    text-align: center;
     overflow: hidden;
 }
 
-h1 {
-    margin-top: 40px;
-    color: white;
+/* PASTA TAM ORTA */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* CAKE */
 .cake {
     position: relative;
-    width: 150px;
-    height: 100px;
-    margin: 50px auto;
-    background: #ff69b4;
-    border-radius: 30px;
+    width: 220px;
+    height: 160px;
+    background: hotpink;
+    border-radius: 20px;
+    margin: auto;
     transition: transform 0.8s ease;
-}
-
-.cake::before {
-    content: "";
-    position: absolute;
-    top: -40px;
-    left: 75px;
-    width: 50px;
-    height: 40px;
-    background: #ff1493;
-    border-radius: 50% 50% 0 0;
+    box-shadow: 0 0 30px pink;
 }
 
 .candle {
     position: absolute;
     width: 10px;
-    height: 30px;
-    background: blue;
-    top: -50px;
-    left: 95px;
+    height: 35px;
+    background: white;
+    top: -35px;
+    left: 105px;
 }
 
 .flame {
     position: absolute;
-    width: 10px;
-    height: 15px;
+    width: 12px;
+    height: 18px;
     background: orange;
     border-radius: 50%;
-    top: -75px;
-    left: 95px;
+    top: -50px;
+    left: 104px;
     opacity: 0;
     animation: flicker 0.2s infinite;
+    box-shadow: 0 0 20px orange;
 }
 
 @keyframes flicker {
     0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    50% { transform: scale(1.3); }
     100% { transform: scale(1); }
 }
 
-/* FLOWERS */
+/* ÇİÇEKLER */
 .flower {
     position: absolute;
     font-size: 50px;
     opacity: 0;
     transform: scale(0);
     transition: all 1s ease;
+    filter: drop-shadow(0 0 15px white);
 }
 
 .flower.show {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.2);
 }
 
-/* Positions */
-#flower1 { top: 20%; left: 10%; }
-#flower2 { top: 60%; left: 80%; }
-#flower3 { top: 70%; left: 20%; }
-#flower4 { top: 25%; left: 75%; }
+/* Çiçek konumları */
+#f1 { top: 10%; left: 15%; }
+#f2 { top: 20%; right: 10%; }
+#f3 { bottom: 15%; left: 20%; }
+#f4 { bottom: 10%; right: 15%; }
+#f5 { top: 50%; left: 5%; }
+#f6 { top: 50%; right: 5%; }
 
+/* Buton */
 button {
-    padding: 10px 20px;
+    margin-top: 30px;
+    padding: 10px 25px;
+    border-radius: 20px;
     border: none;
-    border-radius: 10px;
-    background: white;
     font-size: 16px;
     cursor: pointer;
+    background: linear-gradient(45deg, pink, purple);
+    color: white;
+    box-shadow: 0 0 20px purple;
 }
 
 .message {
-    color: white;
-    font-size: 22px;
     margin-top: 20px;
+    font-size: 24px;
     opacity: 0;
     transition: opacity 1s;
 }
@@ -107,34 +108,36 @@ button {
 
 <body>
 
-<h1>🎀 İyi ki Doğdun 🎀</h1>
+<div class="container">
 
-<div class="cake" id="cake">
-    <div class="candle"></div>
-    <div class="flame" id="flame"></div>
+    <h1>✨ Sürpriz Seni Bekliyor ✨</h1>
+
+    <div class="cake" id="cake">
+        <div class="candle"></div>
+        <div class="flame" id="flame"></div>
+    </div>
+
+    <button onclick="surprise()">Sürprizi Aç 🎁</button>
+
+    <div class="message" id="message">
+        🎉 İyi ki Doğdun! 🎉
+    </div>
+
 </div>
 
-<button onclick="lightCandle()">Sürprizi Aç 🎁</button>
-
-<div class="message" id="message">
-    🎉 Doğum Günün Kutlu Olsun! 🎉
-</div>
-
-<!-- FLOWERS -->
-<div class="flower" id="flower1">🌸</div>
-<div class="flower" id="flower2">🌺</div>
-<div class="flower" id="flower3">🌷</div>
-<div class="flower" id="flower4">🌹</div>
-
-<!-- MUSIC -->
-<audio id="music" src="happy.mp3"></audio>
+<!-- ÇİÇEKLER -->
+<div class="flower" id="f1">🌸</div>
+<div class="flower" id="f2">🌺</div>
+<div class="flower" id="f3">🌷</div>
+<div class="flower" id="f4">🌹</div>
+<div class="flower" id="f5">🌼</div>
+<div class="flower" id="f6">💐</div>
 
 <script>
-function lightCandle() {
+function surprise() {
     document.getElementById("flame").style.opacity = "1";
     document.getElementById("cake").style.transform = "scale(1.1)";
     document.getElementById("message").style.opacity = "1";
-    document.getElementById("music").play();
 
     document.querySelectorAll(".flower").forEach(f => {
         f.classList.add("show");
@@ -144,4 +147,3 @@ function lightCandle() {
 
 </body>
 </html>
-
